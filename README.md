@@ -1,1 +1,1 @@
-# saniakhan122-ChatGPT-Clone-Using-Django
+# Student dropout system using ML
