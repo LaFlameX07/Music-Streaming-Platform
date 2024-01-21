@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Student Information Form</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Information Form</h2>
+        <form action="/submit" method="post">
+            <label for="maritalStatus">Marital Status:</label>
+            <select name="maritalStatus" required>
+                <option value="1">Single</option>
+                <option value="2">Married</option>
+                <option value="3">Widower</option>
+                <option value="4">Divorced</option>
+                <option value="5">Facto union</option>
+                <option value="6">Legally separated</option>
+            </select>
+
+            <label for="course">Course:</label>
+            <select name="course" required>
+                <option value="1">Biofuel Production Technologies</option>
+                <option value="2">Animation and Multimedia Design</option>
+                <option value="3">Social Service (evening attendance)</option>
+                <option value="4">Agronomy</option>
+                <option value="5">Communication Design</option>
+                <option value="6">Veterinary Nursing</option>
+                <option value="7">Informatics Engineering</option>
+                <option value="8">Equiniculture</option>
+                <option value="9">Management
+                </option>
+                <option value="10">Social Service</option>
+                <option value="11">Tourism</option>
+                <option value="12">Nursing</option>
+                <option value="13">Oral Hygiene</option>
+                <option value="14">Advertising and Marketing Management</option>
+                <option value="15">Journalism and Communication</option>
+                <option value="16">Basic Education</option>
+                <option value="17">Management (evening attendance)</option>
+
+            </select>
+
+            <label for="prevQualification">Previous Qualification:</label>
+            <select name="prevQualification" required>
+                <option value="1">Secondary education</option>
+                <option value="2">Higher education—bachelor’s degree</option>
+                <option value="3">Higher education—degree</option>
+                <option value="4">Higher education—master’s degree</option>
+                <option value="5">Higher education—doctorate</option>
+                <option value="6">Frequency of higher education</option>
+                <option value="7">12th year of schooling—not completed</option>
+                <option value="8">11th year of schooling—not completed</option>
+                <option value="9">Other—11th year of schooling</option>
+                <option value="10">10th year of schooling</option>
+                <option value="11">10th year of schooling—not completed</option>
+                <option value="12">Basic education 3rd cycle (9th/10th/11th year) or equivalent</option>
+                <option value="13">Basic education 2nd cycle (6th/7th/8th year) or equivalent</option>
+                <option value="14">Technological specialization course</option>
+                <option value="15">Higher education—degree (1st cycle)</option>
+                <option value="16">Professional higher technical course</option>
+                <option value="17">Higher education—master’s degree (2nd cycle)</option>
+            </select>
+            
+
+            <label for="motherOccupation">Mother's Occupation:</label>
+            <select name="motherOccupation" required>
+                <option value="1">Student</option>
+                <option value="2">Representatives of the Legislative Power and Executive Bodies, Directors, Directors and Executive Managers</option>
+                <option value="3">Specialists in Intellectual and Scientific Activities</option>
+                <option value="4">Intermediate Level Technicians and Professions</option>
+                <option value="5">Administrative staff</option>
+                <option value="6">Personal Services, Security and Safety Workers, and Sellers</option>
+                <option value="7">Farmers and Skilled Workers in Agriculture, Fisheries, and Forestry</option>
+                <option value="8">Skilled Workers in Industry, Construction, and Craftsmen</option>
+                <option value="9">Installation and Machine Operators and Assembly Workers</option>
+                <option value="10">Unskilled Workers</option>
+                <option value="11">Armed Forces Professions</option>
+                <option value="12">Other Situation</option>
+                <option value="13">(blank)</option>
+                <option value="14">Armed Forces Officers</option>
+                <option value="15">Armed Forces Sergeants</option>
+                <option value="16">Other Armed Forces personnel</option>
+                <option value="17">Directors of administrative and commercial services</option>
+                <option value="18">Hotel, catering, trade, and other services directors</option>
+                <option value="19">Specialists in the physical sciences, mathematics, engineering, and related techniques</option>
+                <option value="20">Health professionals</option>
+                <option value="21">Teachers</option>
+                <option value="22">Specialists in finance, accounting, administrative organization, and public and commercial relations</option>
+                <option value="23">Intermediate level science and engineering technicians and professions</option>
+                <option value="24">Technicians and professionals of intermediate level of health</option>
+                <option value="25">Intermediate level technicians from legal, social, sports, cultural, and similar services</option>
+                <option value="26">Information and communication technology technicians</option>
+                <option value="27">Office workers, secretaries in general, and data processing operators</option>
+                <option value="28">Data, accounting, statistical, financial services, and registry-related operators</option>
+                <option value="29">Other administrative support staff</option>
+                <option value="30">Personal service workers</option>
+                <option value="31">Sellers</option>
+                <option value="32">Personal care workers and the like</option>
+                <option value="33">Protection and security services personnel</option>
+                <option value="34">Market-oriented farmers and skilled agricultural and animal production workers</option>
+                <option value="35">Farmers, livestock keepers, fishermen, hunters and gatherers, and subsistence</option>
+                <option value="36">Skilled construction workers and the like, except electricians</option>
+                <option value="37">Skilled workers in metallurgy, metalworking, and similar</option>
+                <option value="38">Skilled workers in electricity and electronics</option>
+                <option value="39">Workers in food processing, woodworking, and clothing and other industries and crafts</option>
+                <option value="40">Fixed plant and machine operators</option>
+                <option value="41">Assembly workers</option>
+                <option value="42">Vehicle drivers and mobile equipment operators</option>
+                <option value="43">Unskilled workers in agriculture, animal production, and fisheries and forestry</option>
+                <option value="44">Unskilled workers in extractive industry, construction, manufacturing, and transport</option>
+                <option value="45">Meal preparation assistants</option>
+                <option value="46">Street vendors (except food) and street service providers</option>
+                <!-- Add other occupation options -->
+            </select>
+            
+
+            <label for="fatherOccupation">Father's Occupation:</label>
+            <select name="fatherOccupation" required>
+                <option value="1">Student</option>
+                <option value="2">Representatives of the Legislative Power and Executive Bodies, Directors, Directors and Executive Managers</option>
+                <option value="3">Specialists in Intellectual and Scientific Activities</option>
+                <option value="4">Intermediate Level Technicians and Professions</option>
+                <option value="5">Administrative staff</option>
+                <option value="6">Personal Services, Security and Safety Workers, and Sellers</option>
+                <option value="7">Farmers and Skilled Workers in Agriculture, Fisheries, and Forestry</option>
+                <option value="8">Skilled Workers in Industry, Construction, and Craftsmen</option>
+                <option value="9">Installation and Machine Operators and Assembly Workers</option>
+                <option value="10">Unskilled Workers</option>
+                <option value="11">Armed Forces Professions</option>
+                <option value="12">Other Situation</option>
+                <option value="13">(blank)</option>
+                <option value="14">Armed Forces Officers</option>
+                <option value="15">Armed Forces Sergeants</option>
+                <option value="16">Other Armed Forces personnel</option>
+                <option value="17">Directors of administrative and commercial services</option>
+                <option value="18">Hotel, catering, trade, and other services directors</option>
+                <option value="19">Specialists in the physical sciences, mathematics, engineering, and related techniques</option>
+                <option value="20">Health professionals</option>
+                <option value="21">Teachers</option>
+                <option value="22">Specialists in finance, accounting, administrative organization, and public and commercial relations</option>
+                <option value="23">Intermediate level science and engineering technicians and professions</option>
+                <option value="24">Technicians and professionals of intermediate level of health</option>
+                <option value="25">Intermediate level technicians from legal, social, sports, cultural, and similar services</option>
+                <option value="26">Information and communication technology technicians</option>
+                <option value="27">Office workers, secretaries in general, and data processing operators</option>
+                <option value="28">Data, accounting, statistical, financial services, and registry-related operators</option>
+                <option value="29">Other administrative support staff</option>
+                <option value="30">Personal service workers</option>
+                <option value="31">Sellers</option>
+                <option value="32">Personal care workers and the like</option>
+                <option value="33">Protection and security services personnel</option>
+                <option value="34">Market-oriented farmers and skilled agricultural and animal production workers</option>
+                <option value="35">Farmers, livestock keepers, fishermen, hunters and gatherers, and subsistence</option>
+                <option value="36">Skilled construction workers and the like, except electricians</option>
+                <option value="37">Skilled workers in metallurgy, metalworking, and similar</option>
+                <option value="38">Skilled workers in electricity and electronics</option>
+                <option value="39">Workers in food processing, woodworking, and clothing and other industries and crafts</option>
+                <option value="40">Fixed plant and machine operators</option>
+                <option value="41">Assembly workers</option>
+                <option value="42">Vehicle drivers and mobile equipment operators</option>
+                <option value="43">Unskilled workers in agriculture, animal production, and fisheries and forestry</option>
+                <option value="44">Unskilled workers in extractive industry, construction, manufacturing, and transport</option>
+                <option value="45">Meal preparation assistants</option>
+                <option value="46">Street vendors (except food) and street service providers</option>
+                <!-- Add other occupation options -->
+            </select>
+
+            <label for="gender">Gender:</label>
+            <select name="gender" required>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+
+            <label for="displaced">Displaced:</label>
+            <select name="displaced" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label for="specialNeeds">Educational Special Needs:</label>
+            <select name="specialNeeds" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label for="debtor">Debtor:</label>
+            <select name="debtor" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label for="tuitionUpToDate">Tuition Fees Up to Date:</label>
+            <select name="tuitionUpToDate" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label for="scholarshipHolder">Scholarship Holder:</label>
+            <select name="scholarshipHolder" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label for="international">International:</label>
+            <select name="international" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
