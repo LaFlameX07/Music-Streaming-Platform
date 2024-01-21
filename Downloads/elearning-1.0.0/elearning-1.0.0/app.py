@@ -1,11 +1,24 @@
 from __future__ import division, print_function
 
 # coding=utf-8
+import joblib
 import os
 import tensorflow as tf
 from flask_wtf import FlaskForm
 from wtforms import SelectField, SubmitField
-
+import h5py
+import webbrowser
+# coding=utf-8
+import os
+import tensorflow as tf
+import numpy as np
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
+from flask import request, render_template
+from flask import Flask
+from werkzeug.utils import secure_filename
 import numpy as np
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
@@ -30,6 +43,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 app = Flask(__name__, template_folder='templates')
 app = Flask(__name__, static_folder='static')
+model = joblib.load('ens2_updated.joblib')
 @app.route("/")
 def Index():
     return render_template('index.html')
@@ -72,30 +86,28 @@ class StudentForm(FlaskForm):
     international = SelectField('International', choices=[('1', 'Yes'), ('0', 'No')], coerce=int)
     submit = SubmitField('Submit')
 
-# Load the pre-trained model
-# model = load_model('trained_model.h5')
 
-# # Function to preprocess form data and make predictions
-# def preprocess_and_predict(data):
-#     # Convert form data to numpy array
-#     input_data = np.array(list(data.values())).astype(float).reshape(1, -1)
+# Function to preprocess form data and make predictions
+def preprocess_and_predict(data):
+    # Convert form data to numpy array
+    input_data = np.array(list(data.values())).astype(float).reshape(1, -1)
 
-#     # Make predictions
-#     prediction = model.predict_classes(input_data)
+    # Make predictions
+    prediction = model.predict_classes(input_data)
 
-#     # Map prediction values to corresponding labels
-#     labels = {0: 'Dropped', 1: 'Enrolled', 2: 'Graduated'}
-#     result = labels[prediction[0]]
+    # Map prediction values to corresponding labels
+    labels = {0: 'Dropped', 1: 'Enrolled', 2: 'Graduated'}
+    result = labels[prediction[0]]
 
-#     return result
+    return result
 
-# @app.route('/About', methods=['GET', 'POST'])
-# def index():
-#     form = StudentForm()
-#     if form.validate_on_submit():
-#         result = preprocess_and_predict(request.form)
-#         return render_template('result.html', result=result)
-#     return render_template('index.html', form=form)
+@app.route('/About', methods=['GET', 'POST'])
+def index():
+    form = StudentForm()
+    if form.validate_on_submit():
+        result = preprocess_and_predict(request.form)
+        return render_template('result.html', result=result)
+    return render_template('index.html', form=form)
 
 app.run(debug=True)
 if __name__ == '_app_':
