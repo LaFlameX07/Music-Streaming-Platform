@@ -27,13 +27,6 @@ config = ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.2
 config.gpu_options.allow_growth = True
 session = InteractiveSession(config=config)
-
-# Keras
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
-
-print("tensorflow ver")
-print(tf.__version__)
 # Flask utils
 from flask import request, render_template
 from flask import Flask
